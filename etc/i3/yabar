@@ -1,0 +1,164 @@
+bar-list = ["bar1","bar2"];
+
+bar1: {
+    position: "top";
+    height:   5;
+    background-color-argb: 0x0;
+    //background-color-argb: 0xFF;
+}
+
+bar2: {
+   font: "Droid Sans,FontAwesome 11";
+   block-list: ["gap1","pacman","wifi","volume","date","brightness","battery","cpu","mem","shutdown","i3ws","music","gap2"];
+   position: "top";
+   height: 25;
+   //background-color-rgb: 0x343D46;
+   background-color-argb: 0x0;
+   underline-size: 4;
+   slack-size: 4;
+
+
+ pacman: {
+  exec: "upd=' : ' && upd+=$(pacman -Qu | wc -l) && echo $upd";
+  type: "periodic";
+  align: "right";
+  fixed-size: 50;
+  interval: 10;
+  //background-color-rgb: 0x343D46;
+  background-color-argb: 0x0;
+  underline-color-rgb:0xE97F02;
+ }
+i3ws: {
+  exec:"python2.7 ~/.scripts/i3ws.py"
+  align: "left";
+  type: "periodic";
+  fixed-size: 300;
+  interval:1;
+  //background-color-rgb: 0x343D46;
+    background-color-argb: 0x0;
+ }
+/** i3ws: {
+		exec: "YABAR_WORKSPACE";
+		align: "left";
+		fixed-size: 40;
+		internal-option1: "        ";
+}**/
+ shutdown: {
+  exec:"echo "
+  command-button1: "poweroff"
+  fixed-size: 30;
+  type: "periodic"
+  align: "right"
+  interval: 1;
+  //background-color-rgb: 0x343D46;
+  background-color-argb: 0x0;
+  underline-color-rgb: 0xAD508A;
+ }
+ volume:{
+    exec:"sh ~/.scripts/volume.sh";
+    command-button1: "pavucontrol";
+    align: "right";
+    fixed-size: 50;
+    type: "periodic"
+    interval: 1;
+    //background-color-rgb: 0x343D46;
+    background-color-argb: 0x0;
+    underline-color-rgb:0x45ADA8;
+  }
+	date:{
+		exec: "YABAR_DATE";
+		align: "center";
+		fixed-size: 170;
+    interval: 1;
+		internal-prefix: "   ";
+		internal-option1: "%a %d %b, %I:%M";
+    //background-color-rgb: 0x343D46;
+    background-color-argb: 0x0;
+	}
+	mem:{
+		exec: "YABAR_MEMORY";
+		align: "right";
+    fixed-size: 80;
+    interval: 1;
+    internal-prefix: "  ";
+    //background-color-rgb: 0x343D46;
+
+    background-color-argb: 0x0;
+    underline-color-rgb:0xFA6900;
+
+	}
+	brightness: {
+		exec: "YABAR_BRIGHTNESS";
+		align: "right";
+    fixed-size: 50;
+    interval: 1;
+		internal-prefix: "  ";
+		internal-option1: "intel_backlight";
+    command-button1: "xbacklight -dec 1";
+    command-button2: "xbacklight -inc 1";
+    //background-color-rgb: 0x343D46;
+    background-color-argb: 0x0;
+    underline-color-rgb:0xF8CA00;
+  }
+	wifi: {
+		exec: "sh ~/.scripts/wifi.sh";
+		align: "right";
+		fixed-size: 120;
+    interval: 1;
+    type:"periodic"
+    command-button1: "nm-connection-editor"
+    //background-color-rgb: 0x343D46;
+    background-color-argb: 0x0;
+    underline-color-rgb: 0xAD508A;
+	}
+	cpu: {
+		exec: "YABAR_CPU";
+		align: "right";
+		fixed-size: 70;
+		interval: 1;
+		internal-prefix: " ";
+		internal-suffix: "%";
+    //background-color-rgb: 0x343D46;
+    background-color-argb: 0x0;
+    underline-color-rgb:0x4E52BF;
+
+	}
+ battery:{
+    exec:"python2.7 ~/.scripts/battery.py";
+    align: "right";
+    fixed-size: 60;
+    type: "periodic";
+    interval: 1;
+    underline-color-rgb:0x267682;
+    //background-color-rgb: 0x343D46;
+    background-color-argb: 0x0;
+
+  }
+music:{
+    exec:"perl ~/.scripts/mediaplayer";
+    align: "left";
+    interval: 1;
+    //underline-color-rgb: 0xF8CA00;
+    type: "periodic"
+    fixed-size: 550;
+    background-color-argb: 0x0;
+}
+ gap1: {
+    exec: "echo";
+    fixed-size: 9;
+    type: "periodic";
+	  interval: 1;
+    align: "left";
+    background-color-argb:0x0;
+ }
+ gap2: {
+  exec: "echo";
+  fixed-size: 9;
+  type: "periodic";
+	interval: 1;
+  align: "right";
+  background-color-argb:0x0;
+ }
+
+}
+

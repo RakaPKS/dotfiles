@@ -10,4 +10,4 @@ Contains my personal dotfiles
 * Font Awesome
 * compton
 * feh (background manager for my i3)
-
+* nm-connection-editor
