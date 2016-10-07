@@ -1,7 +1,7 @@
 # dotfiles
 Contains my personal dotfiles
 
-#Dependencies
+##Dependencies
 * i3-gaps
 * yabar
 * vim
