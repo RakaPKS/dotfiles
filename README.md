@@ -11,3 +11,4 @@ Contains my personal dotfiles
 * compton
 * feh (background manager for my i3)
 * nm-connection-editor
+* i3lock-fancy-git
