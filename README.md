@@ -2,7 +2,7 @@
 Contains my personal dotfiles
 
 ##Dependencies
-* i3-gaps
+* i3-gaps-git
 * yabar
 * vim
 * zsh
