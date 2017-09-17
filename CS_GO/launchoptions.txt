@@ -1,1 +1,1 @@
--console -novid -tickrate 128 -refresh 144 freq 144 +exec autoexec +cl_forcepreload 1  -nod3d9ex1 -nojoy +clientport 27005 +mat_queue_mode 2 -threads 6 -high -h 960 -w 1280
+-console -novid -high -tickrate 128 -fullscreen +exec autoexec +cl_forcepreload 1  -nojoy 
