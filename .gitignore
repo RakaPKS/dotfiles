@@ -1,0 +1,37 @@
+# Private information
+**/api_keys
+**/secrets
+**/*.pem
+**/*.gpg
+
+# Cache and temporary files
+**/cache/
+**/__pycache__/
+**/temp/
+
+
+# Application-specific data
+
+**/history
+**/recently-used*
+**/*undo-tree*
+
+# Local configuration files
+**/local_settings.json
+**/machine-specific.conf
+
+# Large or frequently changing files
+**/logs/
+
+**/databases/
+**/*.log
+
+**/*.db
+**/*.backup
+
+
+# Tmux cloned plugins
+tmux/plugins/*
+# Zsh cloned plugins
+zsh/zsh-syntax-highlighting
+zsh/.zcompdump
