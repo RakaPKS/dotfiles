@@ -35,3 +35,9 @@ tmux/plugins/*
 # Zsh cloned plugins
 zsh/zsh-syntax-highlighting
 zsh/.zcompdump
+
+# Neovim
+.nvimlog
+.nviminfo
+.nvim/lazy-lock.json
+
