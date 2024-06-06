@@ -1,1 +1,3 @@
 std="vim"
+[rules]
+allow = ["mixed_tables"]

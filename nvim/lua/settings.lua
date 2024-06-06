@@ -1,6 +1,7 @@
 -- UI
 vim.opt.number = true -- Show line numbers
 vim.opt.relativenumber = true -- Show relative line numbers
+vim.opt.termguicolors = true -- Enable true color support
 vim.opt.signcolumn = "yes" -- Always show sign column
 vim.opt.cursorline = true -- Highlight current line
 vim.opt.showmode = false -- Hide show as its already in status line
