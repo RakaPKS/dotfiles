@@ -10,9 +10,8 @@ return {
             format_on_save = { lsp_fallback = true },
             formatters_by_ft = {
                 lua = { "stylua" },
-                -- Conform will run multiple formatters sequentially
                 python = { "isort", "black" },
-                toml = {"taplo"},
+                toml = { "taplo" },
             },
         })
     end,

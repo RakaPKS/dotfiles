@@ -14,8 +14,8 @@ return {
                 -- and so changing this is NOT recommended, this is intended
                 -- as an escape hatch for people who cannot bear it for whatever reason
                 indicator_icon = nil,
-                indicator = { style = "icon", icon = "▎"},
-                buffer_close_icon = '',
+                indicator = { style = "icon", icon = "▎" },
+                buffer_close_icon = "",
                 modified_icon = "●",
                 close_icon = "",
                 left_trunc_marker = "",
@@ -82,91 +82,90 @@ return {
                 --   -- add custom logic
                 --   return buffer_a.modified > buffer_b.modified
                 -- end
-              },
-              highlights = {
+            },
+            highlights = {
                 fill = {
-                  fg = { attribute = "fg", highlight = "Visual" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
+                    fg = { attribute = "fg", highlight = "Visual" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
                 },
                 background = {
-                  fg = { attribute = "fg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
+                    fg = { attribute = "fg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
                 },
-    
+
                 buffer_visible = {
-                  fg = { attribute = "fg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
+                    fg = { attribute = "fg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
                 },
-            
+
                 close_button = {
-                  fg = { attribute = "fg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
+                    fg = { attribute = "fg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
                 },
                 close_button_visible = {
-                  fg = { attribute = "fg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
+                    fg = { attribute = "fg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
                 },
-            
+
                 tab_selected = {
-                  fg = { attribute = "fg", highlight = "Normal" },
-                  bg = { attribute = "bg", highlight = "Normal" },
+                    fg = { attribute = "fg", highlight = "Normal" },
+                    bg = { attribute = "bg", highlight = "Normal" },
                 },
                 tab = {
-                  fg = { attribute = "fg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
+                    fg = { attribute = "fg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
                 },
                 tab_close = {
-                  fg = { attribute = "fg", highlight = "TabLineSel" },
-                  bg = { attribute = "bg", highlight = "Normal" },
+                    fg = { attribute = "fg", highlight = "TabLineSel" },
+                    bg = { attribute = "bg", highlight = "Normal" },
                 },
-            
+
                 duplicate_selected = {
-                  fg = { attribute = "fg", highlight = "TabLineSel" },
-                  bg = { attribute = "bg", highlight = "TabLineSel" },
-                  underline = true,
+                    fg = { attribute = "fg", highlight = "TabLineSel" },
+                    bg = { attribute = "bg", highlight = "TabLineSel" },
+                    underline = true,
                 },
                 duplicate_visible = {
-                  fg = { attribute = "fg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
-                  underline = true,
+                    fg = { attribute = "fg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
+                    underline = true,
                 },
                 duplicate = {
-                  fg = { attribute = "fg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
-                  underline = true,
+                    fg = { attribute = "fg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
+                    underline = true,
                 },
-            
+
                 modified = {
-                  fg = { attribute = "fg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
+                    fg = { attribute = "fg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
                 },
                 modified_selected = {
-                  fg = { attribute = "fg", highlight = "Normal" },
-                  bg = { attribute = "bg", highlight = "Normal" },
+                    fg = { attribute = "fg", highlight = "Normal" },
+                    bg = { attribute = "bg", highlight = "Normal" },
                 },
                 modified_visible = {
-                  fg = { attribute = "fg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
+                    fg = { attribute = "fg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
                 },
-            
+
                 separator = {
-                  fg = { attribute = "bg", highlight = "TabLine" },
-                  bg = { attribute = "bg", highlight = "TabLine" },
+                    fg = { attribute = "bg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
                 },
                 separator_selected = {
-                  fg = { attribute = "bg", highlight = "Normal" },
-                  bg = { attribute = "bg", highlight = "Normal" },
+                    fg = { attribute = "bg", highlight = "Normal" },
+                    bg = { attribute = "bg", highlight = "Normal" },
                 },
-                 separator_visible = {
-                   fg = {attribute='bg',highlight='TabLine'},
-                 bg = {attribute='bg',highlight='TabLine'}
-                 },
+                separator_visible = {
+                    fg = { attribute = "bg", highlight = "TabLine" },
+                    bg = { attribute = "bg", highlight = "TabLine" },
+                },
                 indicator_selected = {
-                  fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
-                  bg = { attribute = "bg", highlight = "Normal" },
+                    fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
+                    bg = { attribute = "bg", highlight = "Normal" },
                 },
-              }
-            })
+            },
+        })
     end,
-
 }

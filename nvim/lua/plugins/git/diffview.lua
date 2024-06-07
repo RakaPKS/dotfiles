@@ -10,9 +10,10 @@ return {
         },
         config = function()
             require("diffview").setup({
-                -- Diffview.nvim configuration options
+                -- Diff view.nvim configuration options
                 enhanced_diff_hl = true, -- Enable enhanced highlighting for the diff view
             })
         end,
     },
 }
+

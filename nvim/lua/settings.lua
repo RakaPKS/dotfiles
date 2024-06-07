@@ -24,24 +24,24 @@ vim.opt.mouse = "a" -- Enable mouse in all modes
 vim.opt.breakindent = true -- Wrapped lines keep indentation
 vim.opt.undofile = true -- Persistent undo history
 
-
 -- Toggle commandline-----------------------------------------------------------
 vim.o.cmdheight = 0 -- Set cmdheight to 1 to show the command line
 
 -- Create an autocmd to hide the command line
 -- when leaving the command-line mode
 vim.api.nvim_create_autocmd("CmdlineLeave", {
-  pattern = ":",
-  callback = function()
-    vim.o.cmdheight = 0
-  end,
-}) 
+    pattern = ":",
+    callback = function()
+        vim.o.cmdheight = 0
+    end,
+})
 -- Create an autocmd to show the command line
 -- when entering the command-line mode
 vim.api.nvim_create_autocmd("CmdlineEnter", {
-  pattern = ":",
-  callback = function()
-    vim.o.cmdheight = 1
-  end,
+    pattern = ":",
+    callback = function()
+        vim.o.cmdheight = 1
+    end,
 })
 --------------------------------------------------------------------------------
+

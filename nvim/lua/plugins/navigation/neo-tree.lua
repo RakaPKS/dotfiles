@@ -19,7 +19,7 @@ return {
                 conflict = "Red",
             },
             default_component_configs = {
-                git_status= {
+                git_status = {
                     symbols = {
                         unstaged = "",
                         conflict = "⚡",
