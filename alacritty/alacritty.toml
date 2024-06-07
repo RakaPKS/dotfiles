@@ -1,0 +1,56 @@
+import = [
+  "C:\\Users\\Raka\\AppData\\Roaming\\alacritty\\catpuccin-macchiato.toml",
+]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12
+
+[font.glyph_offset]
+y = -1
+
+
+[font.normal]
+family = "MesloLGSDZ Nerd Font"
+
+
+[window]
+opacity = 0.98
+decorations = "buttonless"
+
+[window.padding]
+x = 5
+
+y = 5
+
+[window.dimensions]
+columns = 120
+lines = 40
+
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+shape = "Block"
+blinking = "Never"
+
+[scrolling]
+history = 10_000
+
+[[keyboard.bindings]]
+key = "Space"
+mods = "Control"
+chars = "\u0000"
+
+#[[key.bindings]]
+#key = "Left"
+
+#mods = "Alt"
+#chars = "\u001bb"
+
+#[[key.bindings]]
+#key = "Right"
+#mods = "Alt"
+#chars = "\u001bf"

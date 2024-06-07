@@ -6,6 +6,8 @@ return {
         "sindrets/diffview.nvim",
         "nvim-telescope/telescope.nvim",
     },
+    lazy = false,
+
     keys = { "<leader>gg", "<cmd>Neogit<CR>", desc = "Neogit" },
     config = function()
         require("neogit").setup({

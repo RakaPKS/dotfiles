@@ -12,10 +12,8 @@ return {
                 lua = { "stylua" },
                 -- Conform will run multiple formatters sequentially
                 python = { "isort", "black" },
+                toml = {"taplo"},
             },
         })
-        vim.keymap.set("n", "<leader>gf", function()
-            conform.format({ bufnr = 0 })
-        end, {})
     end,
 }

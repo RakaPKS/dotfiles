@@ -39,5 +39,5 @@ zsh/.zcompdump
 # Neovim
 .nvimlog
 .nviminfo
-.nvim/lazy-lock.json
-
+nvim/lazy-lock.json
+nvim/examples/
