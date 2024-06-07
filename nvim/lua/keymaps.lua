@@ -15,6 +15,30 @@ vim.keymap.set("n", "<C-Right>", ":wincmd l<CR>", opts, {desc = "Window Right"})
 vim.keymap.set("n", "<leader>sv", ":sp<CR>", opts, {desc = "Split Vertically"})  -- Split vertically
 vim.keymap.set("n", "<leader>sh", ":vsp<CR>", opts, {desc = "Split Horizontally"})  -- Split horizontally
 
+-- Manage Tabs
+vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", opts, {desc = "New Tab"})
+vim.keymap.set("n", "<Leader>tc", ":tabclose<CR>", opts, {desc = "Close Tab"})
+vim.keymap.set("n", "<Leader>tn", ":tabnext<CR>", opts, {desc = "Next Tab"})
+vim.keymap.set("n", "<Leader>tp", ":tabprevious<CR>", opts, {desc = "Previous Tab"})
+
+-- Quickfix 
+vim.keymap.set("n", "<Leader>co", ":copen<CR>", opts, {desc = "Open Quickfix"})
+vim.keymap.set("n", "<Leader>cc", ":cclose<CR>", opts, {desc = "Close Quickfix"})
+vim.keymap.set("n", "<Leader>cn", ":cnext<CR>", opts, {desc = "Next Quickfix Item"})
+vim.keymap.set("n", "<Leader>cp", ":cprevious<CR>", opts, {desc = "Previous Quickfix Item"})
+
+-- Location
+vim.keymap.set("n", "<Leader>lo", ":lopen<CR>", opts, {desc = "Open Location List"})
+vim.keymap.set("n", "<Leader>lc", ":lclose<CR>", opts, {desc = "Close Location List"})
+vim.keymap.set("n", "<Leader>ln", ":lnext<CR>", opts, {desc = "Next Location List Item"})
+vim.keymap.set("n", "<Leader>lp", ":lprevious<CR>", opts, {desc = "Previous Location List Item"})
+
+-- Spell Checker
+vim.keymap.set("n", "<Leader>ss", ":setlocal spell!<CR>", opts, {desc = "Toggle Spell Check"})
+vim.keymap.set("n", "<Leader>sn", "]s", opts, {desc = "Next Misspelled Word"})
+vim.keymap.set("n", "<Leader>sp", "[s", opts, {desc = "Previous Misspelled Word"})
+vim.keymap.set("n", "<Leader>sa", "zg", opts, {desc = "Add Word to Dictionary"})
+
 -- Tmux Navigator
 vim.api.nvim_set_keymap('n', '<C-Left>', '<Esc>:TmuxNavigateLeft<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-Down>', '<Esc>:TmuxNavigateDown<CR>', opts)
