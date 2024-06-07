@@ -4,17 +4,13 @@
     ● catppuccin 
     ● cmp-nvim-lsp
     ● cmp_luasnip 
-
     ● conform.nvim 
     ● friendly-snippets
-
     ● lazy.nvim 
     ● lualine.nvim
-
     ● LuaSnip 
     ● mason-lspconfig.nvim 
     ● nvim-lspconfig
-
     ● mason.nvim
     ● neo-tree.nvim
     ● nui.nvim
@@ -37,7 +33,6 @@
     ● vim-commentary
     ● which-key.nvim
     ● nvim-autopairs
-
     ● rust.vim 
     ● nvim-colorizer.lua
     ● bufferline.nvim
@@ -51,6 +46,7 @@
     ● nvim-treesitter-context
     ● vim-surround
     ● nvim-lightbulb
+    ● undotree
 
 
 
