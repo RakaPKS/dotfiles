@@ -15,10 +15,6 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>")
 -- Window management
 map("n", "<leader>sv", ":sp<CR>")  -- Split vertically
 map("n", "<leader>sh", ":vsp<CR>")  -- Split horizontally
-map("n", "<C-h>", "<C-w>h", { noremap = true })        -- Move left
-map("n", "<C-j>", "<C-w>j", { noremap = true })        -- Move down
-map("n", "<C-k>", "<C-w>k", { noremap = true })        -- Move up
-map("n", "<C-l>", "<C-w>l", { noremap = true })        -- Move right
 
 -- Buffer navigation
 map("n", "<S-h>", ":bprevious<CR>")
