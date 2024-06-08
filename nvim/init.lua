@@ -16,11 +16,10 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Leader key
 vim.g.mapleader = " "
-
+require("settings")
 require("lazy").setup({
   spec = {
     { import = "plugins"},
   },
 })
-require("settings")
 require("keymaps")

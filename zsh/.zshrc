@@ -1,3 +1,4 @@
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Set zinit location and install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -20,7 +21,6 @@ zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -Uz compinit && compinit
-
 zinit cdreplay -q
 
 # Keybindings
@@ -42,12 +42,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliasses
 alias ls='lsd'
@@ -58,22 +52,58 @@ alias cat='bat'
 alias vim='nvim'
 alias vi='nvim'
 alias pupdate='paru -Syu'
+alias theme='toggle_theme'
 
-# catppuccin theme
-source ~/.config/zsh/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
-# fzf
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
---color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
---color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
-# bat
-export BAT_THEME="Catppuccin Macchiato"
+# ~/.config/zsh/theme_mode.zsh
+THEME_CATPPUCCHIN="$XDG_CONFIG_HOME/zsh/zsh-catppuccin-macchiato"
+THEME_SOLARIZED_LIGHT="$XDG_CONFIG_HOME/zsh/zsh-solarized-light"
+THEME_MODE_FILE="$XDG_CONFIG_HOME/zsh/theme_mode"
+
+function load_theme() {
+    if [ -f "$THEME_MODE_FILE" ]; then
+        THEME_MODE=$(cat "$THEME_MODE_FILE")
+    else
+        THEME_MODE="dark"
+        echo "$THEME_MODE" > "$THEME_MODE_FILE"
+    fi
+
+    if [[ $THEME_MODE == "dark" ]]; then
+        source $THEME_CATPPUCCHIN
+    else
+        source "$THEME_SOLARIZED_LIGHT"
+    fi
+}
+
+function toggle_theme() {
+    if [[ $THEME_MODE == "dark" ]]; then
+        THEME_MODE="light"
+        source "$THEME_SOLARIZED_LIGHT"
+        echo "Solarized Light activated"
+    else
+        THEME_MODE="dark"
+        source $THEME_CATPPUCCHIN
+        echo "Catppuccin Macchiato activated"
+    fi
+
+    echo $THEME_MODE > "$THEME_MODE_FILE"
+}
+
+load_theme
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu no
+
 
 #nodejs
 export PATH=~/.npm-global/bin:$PATH
 source /usr/share/nvm/init-nvm.sh
 export PATH=/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:$PATH
 export PATH=/home/raka/.local/bin:$PATH
+
+#cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME/.cargo/env"
 
 # Shell integrations
 eval "$(fzf --zsh)"

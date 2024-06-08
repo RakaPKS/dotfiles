@@ -12,7 +12,9 @@ return {
                 lua = { "stylua" },
                 python = { "isort", "black" },
                 toml = { "taplo" },
+                md = { "prettier" },
             },
         })
     end,
 }
+

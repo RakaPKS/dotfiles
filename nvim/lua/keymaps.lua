@@ -33,12 +33,6 @@ vim.keymap.set("n", "<Leader>lc", ":lclose<CR>", opts, { desc = "Close Location 
 vim.keymap.set("n", "<Leader>ln", ":lnext<CR>", opts, { desc = "Next Location List Item" })
 vim.keymap.set("n", "<Leader>lp", ":lprevious<CR>", opts, { desc = "Previous Location List Item" })
 
--- Spell Checker
-vim.keymap.set("n", "<Leader>ss", ":setlocal spell!<CR>", opts, { desc = "Toggle Spell Check" })
-vim.keymap.set("n", "<Leader>sn", "]s", opts, { desc = "Next Misspelled Word" })
-vim.keymap.set("n", "<Leader>sp", "[s", opts, { desc = "Previous Misspelled Word" })
-vim.keymap.set("n", "<Leader>sa", "zg", opts, { desc = "Add Word to Dictionary" })
-
 -- Undo tree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
