@@ -9,6 +9,7 @@ return {
             local config = require("nvim-treesitter.configs")
             config.setup({
                 auto_install = true,
+                additional_vim_regex_highlighting = false,
                 highlight = { enable = true },
                 indent = { enable = true },
                 rainbow = {
