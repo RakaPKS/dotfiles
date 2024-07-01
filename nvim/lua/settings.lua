@@ -23,6 +23,10 @@ vim.opt.hidden = true -- Allow switching buffers without saving
 vim.opt.mouse = "a" -- Enable mouse in all modes
 vim.opt.breakindent = true -- Wrapped lines keep indentation
 vim.opt.undofile = true -- Persistent undo history
+vim.opt.shortmess:append("c") -- Disable write prompt
+
+-- External---------------------------------------------------------------------
+vim.opt.autoread = true -- Automatically read changes
 
 -- Toggle commandline-----------------------------------------------------------
 vim.o.cmdheight = 0 -- Set cmdheight to 1 to show the command line
@@ -43,5 +47,9 @@ vim.api.nvim_create_autocmd("CmdlineEnter", {
         vim.o.cmdheight = 1
     end,
 })
---------------------------------------------------------------------------------
+----Neovide---------------------------------------------------------------------
+if vim.g.neovide then
+    vim.opt.guifont = { "MesloLGSDZ Nerd Font", ":h12" }
+end
 
+--------------------------------------------------------------------------------

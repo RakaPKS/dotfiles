@@ -103,7 +103,6 @@ export PATH=/home/raka/.local/bin:$PATH
 
 #cargo
 export PATH="$HOME/.cargo/bin:$PATH"
-source "$HOME/.cargo/env"
 
 # Shell integrations
 eval "$(fzf --zsh)"

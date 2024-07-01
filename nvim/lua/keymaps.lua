@@ -18,8 +18,8 @@ vim.keymap.set("n", "<leader>sh", ":vsp<CR>", opts, { desc = "Split Horizontally
 -- Manage Tabs
 vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", opts, { desc = "New Tab" })
 vim.keymap.set("n", "<Leader>tc", ":tabclose<CR>", opts, { desc = "Close Tab" })
-vim.keymap.set("n", "<Leader>tn", ":tabnext<CR>", opts, { desc = "Next Tab" })
-vim.keymap.set("n", "<Leader>tp", ":tabprevious<CR>", opts, { desc = "Previous Tab" })
+vim.keymap.set("n", "<Leader>tp", ":tabnext<CR>", opts, { desc = "Next Tab" })
+vim.keymap.set("n", "<Leader>to", ":tabprevious<CR>", opts, { desc = "Previous Tab" })
 
 -- Quickfix
 vim.keymap.set("n", "<Leader>co", ":copen<CR>", opts, { desc = "Open Quickfix" })
@@ -111,9 +111,6 @@ end, opts, { desc = "Go to the previous hunk" })
 vim.keymap.set("n", "<leader>gf", function()
     require("conform").format({ bufnr = 0 })
 end, opts, { desc = "Format current buffer with conform.nvim" })
-
--- Toggle treesitter-context
-vim.keymap.set("n", "<leader>tc", vim.cmd.TSContextToggle)
 
 -- Misc
 vim.keymap.set("n", "<Leader>/", ":Commentary<CR>", opts, { desc = "Comment Line" })
