@@ -47,9 +47,27 @@ vim.api.nvim_create_autocmd("CmdlineEnter", {
         vim.o.cmdheight = 1
     end,
 })
-----Neovide---------------------------------------------------------------------
-if vim.g.neovide then
-    vim.opt.guifont = { "MesloLGSDZ Nerd Font", ":h12" }
+
+-- Function to check if running on Windows
+local function is_windows()
+    return vim.loop.os_uname().sysname == "Windows_NT"
 end
 
+-- Function to check if running on macOS
+local function is_macos()
+    return vim.loop.os_uname().sysname == "Darwin"
+end
+
+
+----Neovide---------------------------------------------------------------------
+if vim.g.neovide then
+    if is_windows() then
+        vim.o.guifont = "MesloLGSDZ Nerd Font:h12"
+    elseif is_macos() then
+        vim.o.guifont = "Hack Nerd Font Mono:h16"
+    else
+        -- Default font for other operating systems (e.g., Linux)
+        vim.o.guifont = "DejaVu Sans Mono:h12"
+    end
+end
 --------------------------------------------------------------------------------
