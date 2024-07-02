@@ -103,6 +103,8 @@ export PATH=/home/raka/.local/bin:$PATH
 
 #cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+export TERM="xterm-256color"
+export COLORTERM=truecolor
 
 # Shell integrations
 eval "$(fzf --zsh)"
