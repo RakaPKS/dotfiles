@@ -117,3 +117,27 @@ vim.keymap.set("n", "<Leader>/", ":Commentary<CR>", opts, { desc = "Comment Line
 vim.keymap.set("v", "<Leader>/", ":Commentary<CR>", opts, { desc = "Comment Line" })
 vim.keymap.set("n", "<Leader>w", ":w<CR>", opts, { desc = "Write" })
 vim.keymap.set("n", "<Leader>q", ":q<CR>", opts, { desc = "Quit" })
+
+-- Function to change font size
+local function change_font_size(delta)
+    local fonts = vim.opt.guifont:get()
+    local updated_fonts = {}
+
+    for _, font in ipairs(fonts) do
+        local font_name, font_size = font:match("(.+):h(%d+)")
+        if font_name and font_size then
+            local new_size = math.max(1, tonumber(font_size) + delta)
+            table.insert(updated_fonts, string.format("%s:h%d", font_name, new_size))
+        else
+            -- If the font doesn't match the expected format, keep it unchanged
+            table.insert(updated_fonts, font)
+        end
+    end
+
+    vim.opt.guifont = updated_fonts
+end
+
+-- Keybindings for font size adjustment
+vim.keymap.set('n', '<C-=>', function() change_font_size(1) end, { noremap = true, silent = true })
+vim.keymap.set('n', '<C-+>', function() change_font_size(1) end, { noremap = true, silent = true })
+vim.keymap.set('n', '<C-->', function() change_font_size(-1) end, { noremap = true, silent = true })
