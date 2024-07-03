@@ -9,15 +9,6 @@ return {
         -- Set undo-tree icons
         vim.g.undotree_TreeNodeShape = "⎔ "
         vim.g.undotree_TreeVertShape = "│"
-        vim.g.undotree_TreeNodeShape = "⎔ "
-        vim.g.undotree_TreeNodeShape = "⎔ "
-        vim.g.undotree_TreeNodeShape = "⎔ "
-        vim.g.undotree_TreeNodeShape = "⎔ "
-        vim.g.undotree_TreeNodeShape = "⎔ "
-        vim.g.undotree_TreeNodeShape = "⎔ "
-        vim.g.undotree_TreeNodeShape = "⎔ "
-        vim.g.undotree_TreeNodeShape = "⎔ "
-        vim.g.undotree_TreeNodeShape = "⎔ "
         vim.g.undotree_TreeCursorShape = ""
     end,
 }

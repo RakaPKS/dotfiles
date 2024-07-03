@@ -90,6 +90,7 @@ return {
                 ["c"] = "Close Quickfix",
                 ["n"] = "Next Quickfix Item",
                 ["p"] = "Previous Quickfix Item",
+                ["h"] = "Toggle Inlay Hints",
             },
             ["l"] = {
                 name = "Location",

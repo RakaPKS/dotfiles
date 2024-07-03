@@ -24,6 +24,7 @@ vim.opt.mouse = "a" -- Enable mouse in all modes
 vim.opt.breakindent = true -- Wrapped lines keep indentation
 vim.opt.undofile = true -- Persistent undo history
 vim.opt.shortmess:append("c") -- Disable write prompt
+vim.lsp.inlay_hint.enable(true) -- Enable Inlay Hints
 
 -- External---------------------------------------------------------------------
 vim.opt.autoread = true -- Automatically read changes
