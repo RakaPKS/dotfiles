@@ -138,6 +138,46 @@ local function change_font_size(delta)
 end
 
 -- Keybindings for font size adjustment
-vim.keymap.set('n', '<C-=>', function() change_font_size(1) end, { noremap = true, silent = true })
-vim.keymap.set('n', '<C-+>', function() change_font_size(1) end, { noremap = true, silent = true })
-vim.keymap.set('n', '<C-->', function() change_font_size(-1) end, { noremap = true, silent = true })
+vim.keymap.set('n', '<C-=>', function() change_font_size(1) end, opts )
+vim.keymap.set('n', '<C-+>', function() change_font_size(1) end, opts )
+vim.keymap.set('n', '<C-->', function() change_font_size(-1) end, opts)
+
+--Refactoring.nvim
+local refactoring = require("refactoring")
+-- Remaps for the refactoring operations
+vim.keymap.set("x", "<leader>re", function() refactoring.refactor('Extract Function') end, { noremap = true, silent = true, expr = false })
+vim.keymap.set("x", "<leader>rf", function() refactoring.refactor('Extract Function To File') end, { noremap = true, silent = true, expr = false })
+vim.keymap.set("x", "<leader>rv", function() refactoring.refactor('Extract Variable') end, { noremap = true, silent = true, expr = false })
+vim.keymap.set("n", "<leader>ri", function() refactoring.refactor('Inline Variable') end, { noremap = true, silent = true, expr = false })
+-- Inline variable can also pick up the identifier currently under the cursor without visual mode
+vim.keymap.set("n", "<leader>rb", function() refactoring.refactor('Extract Block') end, { noremap = true, silent = true, expr = false })
+vim.keymap.set("n", "<leader>rbf", function() refactoring.refactor('Extract Block To File') end, { noremap = true, silent = true, expr = false })
+-- Prompt for a refactor to apply when the remap is triggered
+vim.keymap.set(
+    {"n", "x"},
+    "<leader>rr",
+    function() refactoring.select_refactor() end,
+    { noremap = true, silent = true, expr = false }
+)
+-- You can also use below = true here to to change the position of the printf
+-- statement (or set two remaps for either one). This remap must be made in normal mode.
+vim.keymap.set(
+    "n",
+    "<leader>rp",
+    function() refactoring.debug.printf({below = false}) end,
+    { noremap = true, silent = true, expr = false }
+)
+-- Print var
+vim.keymap.set(
+    "n",
+    "<leader>rv",
+    function() refactoring.debug.print_var() end,
+    { noremap = true, silent = true, expr = false }
+)
+-- Cleanup function: Remove all debugging functions in a file
+vim.keymap.set(
+    "n",
+    "<leader>rc",
+    function() refactoring.debug.cleanup({}) end,
+    { noremap = true, silent = true, expr = false }
+)

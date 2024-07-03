@@ -47,6 +47,5 @@
     ● vim-surround
     ● nvim-lightbulb
     ● undotree
-
-
-
+    ● nvim-ufo
+    ● refactoring.nvim
