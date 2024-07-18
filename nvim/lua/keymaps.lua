@@ -15,6 +15,9 @@ vim.keymap.set("n", "<C-Right>", ":wincmd l<CR>", opts, { desc = "Window Right" 
 vim.keymap.set("n", "<leader>sv", ":sp<CR>", opts, { desc = "Split Vertically" }) -- Split vertically
 vim.keymap.set("n", "<leader>sh", ":vsp<CR>", opts, { desc = "Split Horizontally" }) -- Split horizontally
 
+-- Redo
+vim.keymap.set("n", "<leader>y", ":redo<CR>", opts, {desc = Redo})
+
 -- Manage Tabs
 vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", opts, { desc = "New Tab" })
 vim.keymap.set("n", "<Leader>tc", ":tabclose<CR>", opts, { desc = "Close Tab" })
@@ -26,6 +29,7 @@ vim.keymap.set("n", "<Leader>co", ":copen<CR>", opts, { desc = "Open Quickfix" }
 vim.keymap.set("n", "<Leader>cc", ":cclose<CR>", opts, { desc = "Close Quickfix" })
 vim.keymap.set("n", "<Leader>cn", ":cnext<CR>", opts, { desc = "Next Quickfix Item" })
 vim.keymap.set("n", "<Leader>cp", ":cprevious<CR>", opts, { desc = "Previous Quickfix Item" })
+
 
 -- Location
 vim.keymap.set("n", "<Leader>lo", ":lopen<CR>", opts, { desc = "Open Location List" })
@@ -75,7 +79,7 @@ end
 vim.keymap.set("n", "<leader>ch", toggle_inlay_hints, opts, { desc = "Toggle Inlay Hints" })
 -- vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts, { desc = "Show Defenition" })
 -- vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts, { desc = "Show References" })
--- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts, { desc = "Code Action" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts, { desc = "Code Action" })
 
 -- Nvim-dap
 vim.keymap.set("n", "<F5>", ':lua require("dap").continue()<CR>', opts, { desc = "DAP Continue" })

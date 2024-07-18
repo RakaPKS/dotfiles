@@ -59,7 +59,9 @@ if vim.g.neovide then
     if is_macos() then
         vim.o.guifont = "Hack Nerd Font Mono:h16"
     else
-        vim.o.guifont = "MesloLGSDZ Nerd Font:h12"
+        vim.o.guifont = "Operator-caska,MesloLGSDZ Nerd Font:h13"
     end
+    vim.g.neovide_scale_factor = 1.0
+    vim.g.neovide_scroll_animation_length = 0.3
 end
 --------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 return {
     "maxmx03/solarized.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
         vim.o.background = "light"
@@ -22,7 +22,14 @@ return {
                 treesitter = true,
                 whichkey = true,
             },
+            styles = {
+                comments = { italic = true, bold = false },
+                functions = { italic = true, bold = true },
+                variables = { italic = true },
+              },
+
             vim.cmd.colorscheme("solarized"),
+
         })
     end,
 }
