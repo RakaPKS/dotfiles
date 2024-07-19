@@ -5,9 +5,7 @@ return {
     enabled = true,
     config = function()
         require("tokyonight").setup({
-            -- Choose the style: "storm", "moon", or "night"
-            style = "moon",
-            -- Enable italic for comments
+            style = "storm",
             styles = {
                 comments = { italic = true },
                 keywords = { italic = true },
@@ -16,25 +14,23 @@ return {
                 sidebars = "dark",
                 floats = "dark",
             },
-            
-            -- Sidebar-like windows like NvimTree should be darker
             sidebars = { "qf", "vista_kind", "terminal", "packer" },
-            
-            -- Make the backdrop darker
             day_brightness = 0.3,
-            
-            -- Adjustments for better readability
             on_colors = function(colors)
                 colors.border = "#1A1B26"
+                colors.comment = "#5c6a92"  -- Brighter blue for comments
+                
             end,
-            
             on_highlights = function(highlights, colors)
-                -- Customize specific highlight groups
-                highlights.Statement = { fg = colors.blue, bold = true }
+                highlights.Statement = { fg = colors.purple, bold = true }
                 highlights.Type = { fg = colors.yellow, italic = true }
                 highlights.Function = { fg = colors.blue, bold = true }
+                highlights.Comment = { fg = colors.comment, italic = true}  -- Bold and italic comments
             end,
         })
         vim.cmd.colorscheme("tokyonight")
+        vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#7aa2f7', bold=true })
+        vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
+        vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#FB508F', bold=true })
     end
 }

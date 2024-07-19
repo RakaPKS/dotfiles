@@ -25,29 +25,29 @@ vim.opt.breakindent = true -- Wrapped lines keep indentation
 vim.opt.undofile = true -- Persistent undo history
 vim.opt.shortmess:append("c") -- Disable write prompt
 vim.lsp.inlay_hint.enable(true) -- Enable Inlay Hints
+vim.opt.updatetime = 300 -- Lowers update time
+
+-- Diagnostics------------------------------------------------------------------
+vim.diagnostic.config({
+    virtual_text = false,
+})
+local signs = {
+    Error = "",
+    Warn = "",
+    Hint = "",
+    Info = ""
+}
+
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 -- External---------------------------------------------------------------------
 vim.opt.autoread = true -- Automatically read changes
 
 -- Toggle commandline-----------------------------------------------------------
 vim.o.cmdheight = 0 -- Set cmdheight to 1 to show the command line
-
--- Create an autocmd to hide the command line
--- when leaving the command-line mode
-vim.api.nvim_create_autocmd("CmdlineLeave", {
-    pattern = ":",
-    callback = function()
-        vim.o.cmdheight = 0
-    end,
-})
--- Create an autocmd to show the command line
--- when entering the command-line mode
-vim.api.nvim_create_autocmd("CmdlineEnter", {
-    pattern = ":",
-    callback = function()
-        vim.o.cmdheight = 1
-    end,
-})
 
 -- Function to check if running on macOS
 local function is_macos()

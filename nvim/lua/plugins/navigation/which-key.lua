@@ -94,11 +94,14 @@ return {
                 ["h"] = "Toggle Inlay Hints",
             },
             ["l"] = {
-                name = "Location",
-                ["o"] = "Open Location List",
-                ["c"] = "Close Location List",
-                ["n"] = "Next Location List Item",
-                ["p"] = "Previous Location List Item",
+                name ="Lsp",
+                ["f"] = "Lspsaga Finder",
+                ["o"] = "Lspsaga Outline",
+                ["r"] = "Lspsaga Rename",
+                ["d"] = "Lspsaga Diagnostic",
+                ["s"] = "Document Symbols",
+                ["w"] = "Workspace Symbols",
+ 
             },
             ["r"] = {
                 name = "Refactor",

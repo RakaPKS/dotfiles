@@ -45,6 +45,39 @@ return {
 
             local servers = mason_lspconfig.get_installed_servers()
 
+            local server_settings = {
+                rust_analyzer = {
+                    settings = {
+                        ["rust-analyzer"] = {
+                            checkOnSave = {
+                                command = "check",
+                            },
+                            cargo = {
+                                allFeatures = true,
+                            },
+                            procMacro = {
+                                enable = true,
+                            },
+                            inlayHints = {
+                                enable = true,
+                                showParameterNames = true,
+                                parameterHintsPrefix = "<- ",
+                                otherHintsPrefix = "=> ",
+                                parameterHints = {
+                                    enabled = true,
+                                    hideNamedArguments = false,
+                                },
+                                typeHints = {
+                                    enable = true,
+                                    hideClosureInitialization = false,
+                                    hideNamedConstructor = false,
+                                },
+                                chainingHints = { enable = true },
+                            },
+                        },
+                    },
+                },
+            }
             for _, server in ipairs(servers) do
                 local opts = {
                     capabilities = cmp_nvim_lsp.default_capabilities(),
@@ -54,10 +87,8 @@ return {
                 }
 
                 -- Check if a custom handler exists for the server
-                local has_custom_handler, custom_handler = pcall(require, "handlers." .. server)
-                if has_custom_handler then
-                    -- Merge the custom handler settings with the default settings
-                    opts = vim.tbl_deep_extend("force", opts, custom_handler)
+                if server_settings[server] then
+                    opts = vim.tbl_deep_extend("force", opts, server_settings[server])
                 end
 
                 lspconfig[server].setup(opts)

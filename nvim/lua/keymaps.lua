@@ -16,7 +16,7 @@ vim.keymap.set("n", "<leader>sv", ":sp<CR>", opts, { desc = "Split Vertically" }
 vim.keymap.set("n", "<leader>sh", ":vsp<CR>", opts, { desc = "Split Horizontally" }) -- Split horizontally
 
 -- Redo
-vim.keymap.set("n", "<leader>y", ":redo<CR>", opts, {desc = Redo})
+vim.keymap.set("n", "<leader>y", ":redo<CR>", opts, { desc = "Redo" })
 
 -- Manage Tabs
 vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", opts, { desc = "New Tab" })
@@ -29,13 +29,6 @@ vim.keymap.set("n", "<Leader>co", ":copen<CR>", opts, { desc = "Open Quickfix" }
 vim.keymap.set("n", "<Leader>cc", ":cclose<CR>", opts, { desc = "Close Quickfix" })
 vim.keymap.set("n", "<Leader>cn", ":cnext<CR>", opts, { desc = "Next Quickfix Item" })
 vim.keymap.set("n", "<Leader>cp", ":cprevious<CR>", opts, { desc = "Previous Quickfix Item" })
-
-
--- Location
-vim.keymap.set("n", "<Leader>lo", ":lopen<CR>", opts, { desc = "Open Location List" })
-vim.keymap.set("n", "<Leader>lc", ":lclose<CR>", opts, { desc = "Close Location List" })
-vim.keymap.set("n", "<Leader>ln", ":lnext<CR>", opts, { desc = "Next Location List Item" })
-vim.keymap.set("n", "<Leader>lp", ":lprevious<CR>", opts, { desc = "Previous Location List Item" })
 
 -- Undo tree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -50,6 +43,7 @@ vim.api.nvim_set_keymap("n", "<C-\\>", "<Esc>:TmuxNavigatePrevious<CR>", opts)
 -- Telescope
 vim.keymap.set("n", "<Leader>ff", ":Telescope find_files<CR>", opts, { desc = "Telescope Find Files" })
 vim.keymap.set("n", "<Leader>fg", ":Telescope live_grep<CR>", opts, { desc = "Telescope Live Grep" })
+vim.keymap.set("n", "<leader>fd", ":Telescope diagnostics<CR>", opts, { desc = "Telescope Diagnostics" })
 vim.keymap.set("n", "<Leader>fb", ":Telescope buffers<CR>", opts, { desc = "Telescope Buffers" })
 vim.keymap.set("n", "<Leader>fh", ":Telescope help_tags<CR>", opts, { desc = "Telescope Help Tags" })
 vim.keymap.set("n", "<Leader>fo", ":Telescope oldfiles<CR>", opts, { desc = "Telescope Old Files" })
@@ -59,7 +53,9 @@ vim.keymap.set("n", "<Leader>e", ":Neotree toggle<CR>", opts, { desc = "Toggle N
 
 -- LSP
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "K", vim.lsp.buf.hover, opts, { desc = "Hover" })
+local saga = require("lspsaga")
+
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover" })
 vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Find references" })
 vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Go to definition" })
 vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Go to implementation" })
@@ -76,10 +72,11 @@ local function toggle_inlay_hints()
     end
 end
 
-vim.keymap.set("n", "<leader>ch", toggle_inlay_hints, opts, { desc = "Toggle Inlay Hints" })
--- vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts, { desc = "Show Defenition" })
--- vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts, { desc = "Show References" })
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts, { desc = "Code Action" })
+vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
+vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", { desc = "Lspsaga Finder" })
+vim.keymap.set("n", "<leader>lo", "<cmd>Lspsaga outline<CR>", { desc = "Lspsaga Outline" })
+vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Lspsaga Rename" })
+vim.keymap.set("n", "<leader>ld", vim.diagnostic.goto_next, {desc = "Next Diagnostic"})
 
 -- Nvim-dap
 vim.keymap.set("n", "<F5>", ':lua require("dap").continue()<CR>', opts, { desc = "DAP Continue" })
