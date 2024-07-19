@@ -26,3 +26,16 @@ vim.api.nvim_create_autocmd("CmdlineEnter", {
         vim.o.cmdheight = 1
     end,
 })
+
+vim.api.nvim_create_user_command('ProjectAdd', function()
+    local project_actions = require("telescope._extensions.project.actions")
+    project_actions.add_project_cwd()
+end, {})
+
+vim.api.nvim_create_user_command('ProjectDelete', function()
+    require('telescope').extensions.project.project({ action = "delete" })
+end, {})
+
+vim.api.nvim_create_user_command('ProjectRename', function()
+    require('telescope').extensions.project.project({ action = "rename" })
+end, {})

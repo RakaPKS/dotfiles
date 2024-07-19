@@ -24,12 +24,5 @@ return {
             },
             
         })
-            -- Set up the autocommand for automatic diagnostics
-            local group = vim.api.nvim_create_augroup("Line Diagnostics", { clear = true })
-            vim.api.nvim_create_autocmd("CursorHold", {
-                command = "Lspsaga show_line_diagnostics ++unfocus",
-                group = group,
-            })
-                
     end,
 }

@@ -25,7 +25,7 @@ vim.opt.breakindent = true -- Wrapped lines keep indentation
 vim.opt.undofile = true -- Persistent undo history
 vim.opt.shortmess:append("c") -- Disable write prompt
 vim.lsp.inlay_hint.enable(true) -- Enable Inlay Hints
-vim.opt.updatetime = 300 -- Lowers update time
+vim.opt.updatetime = 1000 -- Lowers update time
 
 -- Diagnostics------------------------------------------------------------------
 vim.diagnostic.config({
@@ -34,7 +34,7 @@ vim.diagnostic.config({
 local signs = {
     Error = "",
     Warn = "",
-    Hint = "",
+    Hint = " ",
     Info = ""
 }
 
@@ -57,7 +57,7 @@ end
 ----Neovide---------------------------------------------------------------------
 if vim.g.neovide then
     if is_macos() then
-        vim.o.guifont = "Hack Nerd Font Mono:h16"
+        vim.o.guifont = "Operator-caska,Hack Nerd Font Mono:h16"
     else
         vim.o.guifont = "Operator-caska,MesloLGSDZ Nerd Font:h13"
     end

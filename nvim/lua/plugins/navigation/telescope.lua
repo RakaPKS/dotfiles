@@ -7,23 +7,30 @@ return {
         "nvim-telescope/telescope-ui-select.nvim",
     },
     {
+        "nvim-telescope/telescope-project.nvim",
+    },
+    {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-fzf-native.nvim",
+            "nvim-telescope/telescope-project.nvim",
+            "nvim-tree/nvim-web-devicons"
         },
         config = function()
             local telescope = require("telescope")
             telescope.setup({
                 extensions = {
-                    ["ui-select"] = {
-                        require("telescope.themes").get_dropdown({}),
-                    },
                     fzf = {
                         fuzzy = true,
                         override_generic_sorter = true,
                         override_file_sorter = true,
                         case_mode = "smart_case",
+                    },
+                    project ={            
+                        hidden_files = true,
+                        order_by = "asc",
+                        search_by = "title",
                     },
                 },
                 pickers = {
@@ -34,6 +41,7 @@ return {
             })
             telescope.load_extension("ui-select")
             telescope.load_extension("fzf")
+            telescope.load_extension("project")
         end,
     },
 }

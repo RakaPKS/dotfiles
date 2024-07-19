@@ -47,6 +47,7 @@ vim.keymap.set("n", "<leader>fd", ":Telescope diagnostics<CR>", opts, { desc = "
 vim.keymap.set("n", "<Leader>fb", ":Telescope buffers<CR>", opts, { desc = "Telescope Buffers" })
 vim.keymap.set("n", "<Leader>fh", ":Telescope help_tags<CR>", opts, { desc = "Telescope Help Tags" })
 vim.keymap.set("n", "<Leader>fo", ":Telescope oldfiles<CR>", opts, { desc = "Telescope Old Files" })
+vim.keymap.set('n', '<leader>fp', ":Telescope project<CR>",  opts, { desc = " Telescope Project" })
 
 -- Neo-tree
 vim.keymap.set("n", "<Leader>e", ":Neotree toggle<CR>", opts, { desc = "Toggle Neo-Tree" })
@@ -55,12 +56,12 @@ vim.keymap.set("n", "<Leader>e", ":Neotree toggle<CR>", opts, { desc = "Toggle N
 local builtin = require("telescope.builtin")
 local saga = require("lspsaga")
 
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover" })
-vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Find references" })
-vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Go to definition" })
-vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Go to implementation" })
-vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { desc = "Document symbols" })
-vim.keymap.set("n", "<leader>lw", builtin.lsp_dynamic_workspace_symbols, { desc = "Workspace symbols" })
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts, { desc = "Hover" })
+vim.keymap.set("n", "gr", builtin.lsp_references, opts, { desc = "Find references" })
+vim.keymap.set("n", "gd", builtin.lsp_definitions, opts, { desc = "Go to definition" })
+vim.keymap.set("n", "gi", builtin.lsp_implementations, opts, { desc = "Go to implementation" })
+vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, opts, { desc = "Document symbols" })
+vim.keymap.set("n", "<leader>lw", builtin.lsp_dynamic_workspace_symbols, opts, { desc = "Workspace symbols" })
 
 -- Toggle Inlay Hints
 local function toggle_inlay_hints()
@@ -72,11 +73,12 @@ local function toggle_inlay_hints()
     end
 end
 
-vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
-vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", { desc = "Lspsaga Finder" })
-vim.keymap.set("n", "<leader>lo", "<cmd>Lspsaga outline<CR>", { desc = "Lspsaga Outline" })
-vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Lspsaga Rename" })
-vim.keymap.set("n", "<leader>ld", vim.diagnostic.goto_next, {desc = "Next Diagnostic"})
+vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts, { desc = "Code Action" })
+vim.keymap.set("n", "<leader>ch", toggle_inlay_hints, opts, {desc = "Toggle Inlay hints"})
+vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", opts, { desc = "Lspsaga Finder" })
+vim.keymap.set("n", "<leader>lo", "<cmd>Lspsaga outline<CR>", opts, { desc = "Lspsaga Outline" })
+vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts, { desc = "Lspsaga Rename" })
+vim.keymap.set("n", "<leader>ld", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts, {desc = "Next Diagnostic"})
 
 -- Nvim-dap
 vim.keymap.set("n", "<F5>", ':lua require("dap").continue()<CR>', opts, { desc = "DAP Continue" })
