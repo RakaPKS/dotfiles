@@ -108,6 +108,47 @@ vim.keymap.set("n", "<Leader>hp", ":Gitsigns preview_hunk<CR>", opts, { desc = "
 -- Neogit
 vim.keymap.set("n", "<Leader>gg", ":Neogit<CR>", opts, { desc = "Open Neogit" })
 
+-- Trouble
+vim.keymap.set("n", "<leader>Tt", "<cmd>TroubleToggle<cr>", opts, { desc = "Toggle Trouble" })
+vim.keymap.set("n", "<leader>Tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts, { desc = "Workspace Diagnostics" })
+vim.keymap.set("n", "<leader>Td", "<cmd>TroubleToggle document_diagnostics<cr>", opts, { desc = "Document Diagnostics" })
+vim.keymap.set("n", "<leader>Tq", "<cmd>TroubleToggle quickfix<cr>", opts, { desc = "Quickfix" })
+vim.keymap.set("n", "<leader>Tl", "<cmd>TroubleToggle loclist<cr>", opts, { desc = "Loclist" })
+
+-- Mason
+vim.keymap.set("n", "<leader>mm", "<cmd>Mason<cr>", opts, { desc = "Open Mason" })
+vim.keymap.set("n", "<leader>ml", "<cmd>MasonLog<cr>", opts, { desc = "Mason Log" })
+
+-- Colorizer
+vim.keymap.set("n", "<leader>Ct", "<cmd>ColorizerToggle<cr>", opts, { desc = "Toggle Colorizer" })
+vim.keymap.set("n", "<leader>Ca", "<cmd>ColorizerAttachToBuffer<cr>", opts, { desc = "Attach Colorizer" })
+
+-- Indent Blankline
+vim.keymap.set("n", "<leader>it", "<cmd>IndentBlanklineToggle<cr>", opts, { desc = "Toggle Indent Blankline" })
+
+-- Linting
+vim.keymap.set("n", "<leader>Ll", function() require("lint").try_lint() end, opts, { desc = "Lint" })
+
+-- Plugins (Lazy)
+vim.keymap.set("n", "<leader>Pi", "<cmd>Lazy install<cr>", opts, { desc = "Install Plugins" })
+vim.keymap.set("n", "<leader>Ps", "<cmd>Lazy sync<cr>", opts, { desc = "Sync Plugins" })
+vim.keymap.set("n", "<leader>PS", "<cmd>Lazy show<cr>", opts, { desc = "Plugin Status" })
+vim.keymap.set("n", "<leader>Pu", "<cmd>Lazy update<cr>", opts, { desc = "Update Plugins" })
+vim.keymap.set("n", "<leader>Pp", "<cmd>Lazy profile<cr>", opts, { desc = "Plugin Profile" })
+
+-- Auto Pairs
+vim.keymap.set("n", "<leader>At", "<cmd>lua require('nvim-autopairs').toggle()<cr>", opts, { desc = "Toggle Auto Pairs" })
+
+-- Zen Mode
+vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<cr>", opts, { desc = "Toggle Zen Mode" })
+
+-- Persistence (Session Management)
+vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end, opts, { desc = "Load Current Dir Session" })
+vim.keymap.set("n", "<leader>qS", function() require("persistence").select() end, opts, { desc = "Select Session" })
+vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end, opts, { desc = "Load Latest Session" })
+vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end, opts, { desc = "Stop Persistence" })
+
+
 -- Diffview
 vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<cr>", opts, { desc = "Open Diffview" })
 vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>", opts, { desc = "Close Diffview" })
@@ -134,10 +175,14 @@ vim.keymap.set("n", "<leader>gf", function()
 end, opts, { desc = "Format current buffer with conform.nvim" })
 
 -- Misc
-vim.keymap.set("n", "<Leader>/", ":Commentary<CR>", opts, { desc = "Comment Line" })
-vim.keymap.set("v", "<Leader>/", ":Commentary<CR>", opts, { desc = "Comment Line" })
 vim.keymap.set("n", "<Leader>w", ":w<CR>", opts, { desc = "Write" })
-vim.keymap.set("n", "<Leader>q", ":q<CR>", opts, { desc = "Quit" })
+
+-- Toggle comment on current line or selection
+vim.keymap.set("n", "<leader>/", function()
+    require("Comment.api").toggle.linewise.current()
+end, opts, { desc = "Toggle comment" })
+vim.keymap.set("v", "<leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts, { desc = "Toggle comment" })
+
 
 -- Function to change font size
 local function change_font_size(delta)

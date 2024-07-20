@@ -37,6 +37,7 @@ return {
             dashboard.button("f", "  󰈞 Find file", ":Telescope find_files <CR>"),
             dashboard.button("p", "   Projects", ":lua require'telescope'.extensions.project.project{}<CR>"),
             dashboard.button("r", "  󱋡 Recent files", ":Telescope oldfiles <CR>"),
+            dashboard.button("s", "  󰦛 Resume session", [[:lua require("persistence").load() <CR>]]),
             dashboard.button("q", "  󰩈 Quit NVIM", ":qa<CR>"),
         }
 

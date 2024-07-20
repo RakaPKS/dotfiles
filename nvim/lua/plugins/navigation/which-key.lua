@@ -57,6 +57,9 @@ return {
             ["/"] = "Comment Line",
             ["b"] = "Set Breakpoint",
             ["-"] = "Open Oil",
+            ["y"] = "Redo",
+            ["u"] = "Undo Tree",
+
             ["f"] = {
                 name = "Telescope",
                 ["f"] = "Find Files",
@@ -64,7 +67,10 @@ return {
                 ["b"] = "Buffers",
                 ["h"] = "Help Tags",
                 ["o"] = "Old Files",
+                ["d"] = "Diagnostics",
+                ["p"] = "Projects",
             },
+
             ["g"] = {
                 name = "Git",
                 ["g"] = "Open Neogit",
@@ -72,6 +78,7 @@ return {
                 ["r"] = "Show References",
                 ["f"] = "Format Buffer with Conform",
             },
+
             ["h"] = {
                 name = "Gitsigns",
                 ["s"] = "Stage Hunk",
@@ -79,11 +86,15 @@ return {
                 ["S"] = "Stage Buffer",
                 ["p"] = "Preview Hunk",
             },
+
             ["d"] = {
-                name = "Diffview",
+                name = "Diffview/DAP",
                 ["o"] = "Open Diffview",
                 ["c"] = "Close Diffview",
+                ["u"] = "Toggle DAP UI",
+                ["e"] = "DAP Eval",
             },
+
             ["c"] = {
                 name = "Code",
                 ["a"] = "Code Action",
@@ -93,16 +104,17 @@ return {
                 ["p"] = "Previous Quickfix Item",
                 ["h"] = "Toggle Inlay Hints",
             },
+
             ["l"] = {
-                name ="Lsp",
+                name = "LSP",
                 ["f"] = "Lspsaga Finder",
                 ["o"] = "Lspsaga Outline",
                 ["r"] = "Lspsaga Rename",
                 ["d"] = "Lspsaga Diagnostic",
                 ["s"] = "Document Symbols",
                 ["w"] = "Workspace Symbols",
- 
             },
+
             ["r"] = {
                 name = "Refactor",
                 ["e"] = "Extract Function",
@@ -116,6 +128,7 @@ return {
                 ["P"] = "Debug Print Variable",
                 ["c"] = "Debug Cleanup",
             },
+
             ["s"] = {
                 name = "Split/Surround",
                 ["v"] = "Split Vertically",
@@ -125,9 +138,10 @@ return {
                 ["f"] = "Find Surrounding (Right)",
                 ["F"] = "Find Surrounding (Left)",
                 ["s"] = "Highlight Surrounding",
-                ["r"] = "Replace Surroudning",
+                ["r"] = "Replace Surrounding",
                 ["n"] = "Update N_lines",
             },
+
             ["t"] = {
                 name = "Diagnostics/Tabs",
                 ["n"] = "New Tab",
@@ -135,18 +149,93 @@ return {
                 ["p"] = "Next Tab",
                 ["o"] = "Previous Tab",
             },
-            ["u"] = "Undo Tree",
+
             ["z"] = {
-                name = "Folding",
-                ["R"] = { "Open all folds" },
-                ["M"] = { "Close all folds" },
-                ["r"] = { "Open one level of folds" },
-                ["m"] = { "Close one level of folds" },
-                ["a"] = { "Toggle fold under cursor" },
-                ["c"] = { "Close fold under cursor" },
-                ["o"] = { "Open fold under cursor" },
+                name = "Folding/Zen Mode",
+                ["R"] = "Open all folds",
+                ["M"] = "Close all folds",
+                ["r"] = "Open one level of folds",
+                ["m"] = "Close one level of folds",
+                ["a"] = "Toggle fold under cursor",
+                ["c"] = "Close fold under cursor",
+                ["o"] = "Open fold under cursor",
+                ["z"] = "Toggle Zen Mode",
+            },
+
+            ["q"] = {
+                name = "Persistence",
+                ["s"] = "Load Current Dir Session",
+                ["S"] = "Select Session",
+                ["l"] = "Load Latest Session",
+                ["d"] = "Stop Persistence",
+            },
+
+            ["T"] = {
+                name = "Trouble",
+                ["t"] = "Toggle Trouble",
+                ["w"] = "Workspace Diagnostics",
+                ["d"] = "Document Diagnostics",
+                ["q"] = "Quickfix",
+                ["l"] = "Loclist",
+            },
+
+            ["m"] = {
+                name = "Mason",
+                ["m"] = "Mason",
+                ["l"] = "Mason Lspconfig",
+            },
+
+            ["C"] = {
+                name = "Colorizer",
+                ["t"] = "Toggle Colorizer",
+                ["a"] = "Attach Colorizer",
+            },
+
+            ["i"] = {
+                name = "Indent Blankline",
+                ["t"] = "Toggle Indent Blankline",
+            },
+
+            ["L"] = {
+                name = "Linting",
+                ["l"] = "Lint",
+            },
+
+            ["P"] = {
+                name = "Plugins",
+                ["i"] = "Install Plugins",
+                ["s"] = "Sync Plugins",
+                ["S"] = "Status",
+                ["u"] = "Update Plugins",
+                ["p"] = "Profile",
+            },
+
+            ["A"] = {
+                name = "Auto Pairs",
+                ["t"] = "Toggle Auto Pairs",
             },
         }
+
+        -- Add normal mode mappings
+        local normal_mappings = {
+            ["<A-Left>"] = "Previous Buffer",
+            ["<A-Right>"] = "Next Buffer",
+            ["<C-w>"] = "Close Buffer",
+            ["<C-Up>"] = "Window Up",
+            ["<C-Down>"] = "Window Down",
+            ["<C-Left>"] = "Window Left",
+            ["<C-Right>"] = "Window Right",
+            ["<C-t>"] = "Open Floating Terminal",
+            ["<F5>"] = "DAP Continue",
+            ["<F10>"] = "DAP Step Over",
+            ["<F11>"] = "DAP Step Into",
+            ["<F12>"] = "DAP Step Out",
+            ["K"] = "Hover Doc",
+            ["[c"] = "Gitsigns Prev Hunk",
+            ["]c"] = "Gitsigns Next Hunk",
+        }
+
         require("which-key").register(mappings, opts)
+        require("which-key").register(normal_mappings, { mode = "n" })
     end,
 }
