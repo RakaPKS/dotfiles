@@ -111,3 +111,24 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
+
+# Check if the system is Fedora
+if [ -f /etc/fedora-release ]; then
+    fedora_update() {
+        echo "Running comprehensive Fedora update..."
+        sudo dnf update -y
+        if command -v flatpak >/dev/null 2>&1; then
+            flatpak update -y
+        fi
+        if command -v snap >/dev/null 2>&1; then
+            sudo snap refresh
+        fi
+        if command -v rustc >/dev/null 2>&1 && command -v cargo >/dev/null 2>&1; then
+            rustup update stable
+            cargo install-update -a
+        fi
+        echo "All updates completed!"
+    }
+    alias fupdate='fedora_update'
+fi
+
