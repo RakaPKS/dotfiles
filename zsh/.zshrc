@@ -82,8 +82,8 @@ function toggle_theme() {
         echo "Solarized Light activated"
     else
         THEME_MODE="dark"
-        source $THEME_CATPPUCCHIN
-        echo "Catppuccin Macchiato activated"
+        source $THEME_TOKYONIGHT
+        echo "TOKYONIGHT activated"
     fi
 
     echo $THEME_MODE > "$THEME_MODE_FILE"
