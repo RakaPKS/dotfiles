@@ -55,7 +55,8 @@ alias pupdate='paru -Syu'
 alias theme='toggle_theme'
 
 # ~/.config/zsh/theme_mode.zsh
-THEME_CATPPUCCHIN="$XDG_CONFIG_HOME/zsh/zsh-catppuccin-macchiato"
+#THEME_CATPPUCCHIN="$XDG_CONFIG_HOME/zsh/zsh-catppuccin-macchiato"
+THEME_TOKYONIGHT="$XDG_CONFIG_HOME/zsh/zsh-tokyonight"
 THEME_SOLARIZED_LIGHT="$XDG_CONFIG_HOME/zsh/zsh-solarized-light"
 THEME_MODE_FILE="$XDG_CONFIG_HOME/zsh/theme_mode"
 
@@ -68,7 +69,7 @@ function load_theme() {
     fi
 
     if [[ $THEME_MODE == "dark" ]]; then
-        source $THEME_CATPPUCCHIN
+        source $THEME_TOKYONIGHT
     else
         source "$THEME_SOLARIZED_LIGHT"
     fi
@@ -97,7 +98,6 @@ zstyle ':completion:*' menu no
 
 #nodejs
 export PATH=~/.npm-global/bin:$PATH
-source /usr/share/nvm/init-nvm.sh
 export PATH=/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:$PATH
 export PATH=/home/raka/.local/bin:$PATH
 

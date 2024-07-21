@@ -1,0 +1,14 @@
+# Tokyo Night Moon theme
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+source $XDG_CONFIG_HOME/zsh/tokyonight-moon-zsh-syntax-highlighting.zsh
+
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#2f334d,bg:#222436,spinner:#82aaff,hl:#c099ff \
+--color=fg:#c8d3f5,header:#c099ff,info:#82aaff,pointer:#82aaff \
+--color=marker:#82aaff,fg+:#c8d3f5,prompt:#82aaff,hl+:#c099ff"
+
+export BAT_THEME="tokyonight_moon"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship-tokyonight-moon.toml"
+
